@@ -17,7 +17,7 @@
 
     .wrapper {
       display: flex;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     .sidebar {
@@ -51,15 +51,18 @@
     .content {
       margin-left: 220px;
       padding: 30px;
-      width: 100%;
+      width: calc(100% - 220px);
       background-color: #f8f9fa;
-      overflow-y: auto;
     }
 
-    .card-group {
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .card-group-custom {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
       gap: 20px;
     }
 
@@ -67,18 +70,38 @@
       width: 300px;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background-color: #fff;
     }
 
     .card-img-top {
-      height: 200px;
+      height: 180px;
       object-fit: cover;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
     }
 
     .card-body {
-      background: #fff;
       padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+
+      .content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -91,14 +114,15 @@
       <h2>Freedom.AI</h2>
       <a href="marketplace.html">Marketplace</a>
       <a href="postcards.html">Postcards</a>
-      <!-- Add more links as needed -->
     </div>
 
     <!-- Page Content -->
     <div class="content">
-      <h1>Explore Our Marketplace</h1>
-      
-      <div class="card-group">
+      <h1>Explore our Marketplace</h1>
+
+      <!-- Personalized Section -->
+      <h3 class="section-title">Personalized</h3>
+      <div class="card-group-custom">
         <!-- Postcard Card -->
         <div class="card">
           <a href="postcards.html">
@@ -110,25 +134,41 @@
           </div>
         </div>
 
-        <!-- Placeholder Card -->
+        <!-- Photo Album Card -->
         <div class="card">
           <a href="postcards.html">
-            <img class="card-img-top" src="https://www.graphistudio.com/wp-content/uploads/2019/01/matted_open_new.jpg" alt="Virtual Postcard">
+            <img class="card-img-top" src="https://www.graphistudio.com/wp-content/uploads/2019/01/matted_open_new.jpg" alt="Photo Album">
           </a>
           <div class="card-body">
-            <h5 class="card-title">Photoalbum</h5>
+            <h5 class="card-title">Photo Album</h5>
             <p class="card-text">Share moments through a digital photo album to keep your incarcerated loved ones connected with life on the outside. Send updated photos to show them how things are going and remind them they're never forgotten.</p>
           </div>
         </div>
+      </div>
+
+      <!-- Games Section -->
+      <h3 class="section-title">Games</h3>
+      <div class="card-group-custom">
+        <!-- Gamebook Card -->
         <div class="card">
           <a href="postcards.html">
-            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAymjHjuk6OvTr4IOUzVhDoybFLM5kJzXxr2zqhmCYpw&s&ec=72940543" alt="Virtual Postcard">
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAymjHjuk6OvTr4IOUzVhDoybFLM5kJzXxr2zqhmCYpw&s&ec=72940543" alt="Gamebook">
           </a>
           <div class="card-body">
             <h5 class="card-title">Gamebook</h5>
-            <p class="card-text"> Send interactive gamebooks filled with puzzles, brain teasers, and fun challenges to keep your loved ones mentally active and entertained.</p>
+            <p class="card-text">Send interactive gamebooks filled with puzzles, brain teasers, and fun challenges to keep your loved ones mentally active and entertained.</p>
           </div>
         </div>
+
+        <!-- Trivia Pack Card -->
+        <div class="card">
+          <a href="">
+            <img class="card-img-top" src="https://fbres.fivebelow.com/image/upload/t_large/f_webp/5bassets/prod-hts/spree/images/1833651/original/6465033-00_D.jpg" alt="Trivia Pack">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Trivia Pack</h5>
+            <p class="card-text">Send a bundle of trivia questions and themed quizzes to keep minds sharp and offer a fun challenge for solo or group play.</p>
+          </div>
         </div>
       </div>
     </div>
